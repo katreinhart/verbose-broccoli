@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 import Header from './header';
-import Plant from './plant';
+
+import PlantContainer from './PlantContainer';
 
 import './styles.scss';
 
@@ -12,9 +13,8 @@ export default class App extends Component {
       <MuiThemeProvider>
         <div>
           <Header />
-          <h2>Hello React!</h2>
-          <Plant name="Peace Lily" />
-          <Plant name="Philodendron" />
+          <h2>Welcome to Airplant.io!</h2>
+          <PlantContainer />
         </div>
 
       </MuiThemeProvider>

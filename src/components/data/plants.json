@@ -1,0 +1,29 @@
+[
+  {
+    "id": "1",
+    "name": "Peace Lily",
+    "description": "A lovely, hardy flowering plant",
+    "species": "Spathophyllum",
+    "care": "easy",
+    "light": ["low", "moderate"],
+    "water": "Water when floppy"
+  },
+  {
+    "id": "2",
+    "name": "Orchid",
+    "description": "A classic orchid",
+    "species": "Latin sp.",
+    "care": "moderate",
+    "light": "filtered",
+    "water": "Soak when dry, do not overwater"
+  },
+  {
+    "id": "3",
+    "name": "Wandering Jew",
+    "description": "Easy to care for, fast-growing vine",
+    "species": "Idk",
+    "care": "easy",
+    "light": ["bright", "moderate"],
+    "water": "Whenever"
+  }
+]
