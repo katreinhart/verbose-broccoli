@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
+import AppBar from 'material-ui/AppBar';
 
 export default class Header extends Component {
   render() {
     return (
       <div>
-        Header goes here
+        <AppBar title="Airplant.io"/>
         <ul>
-          <li>Nav 1</li>
-          <li>Nav 2</li>
-          <li>Nav 3</li>
+          <li>Home</li>
+          <li>About</li>
+          <li>Login</li>
         </ul>
       </div>
     )
