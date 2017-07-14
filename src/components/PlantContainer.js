@@ -1,24 +1,30 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
 import plantList from './data/plants.json';
 
 import Plant from './plant';
 
-export default class PlantContainer extends Component {
-  constructor() {
-    super();
-    this.state = {
-      plants: plantList
-    }
-  }
+class PlantContainer extends Component {
+
   render() {
     return(
       <div>
         {
-          this.state.plants.map((name, id) => {
-            <Plant key={id} name={name} />
+          plantList.map((plant, id) => {
+            console.log("plant " + plant.name);
+            return(<Plant key={id} name={plant.name} description={plant.description}/>)
           })
         }
       </div>
     )
   }
 }
+
+function mapStateToProps(state) {
+  return {
+    state
+  }
+}
+
+export default connect(mapStateToProps)(PlantContainer)

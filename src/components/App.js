@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 import Header from './header';
-
+import PlantBasket from './PlantBasket';
 import PlantContainer from './PlantContainer';
 
 import './styles.scss';
@@ -15,8 +15,8 @@ export default class App extends Component {
           <Header />
           <h2>Welcome to Airplant.io!</h2>
           <PlantContainer />
+          <PlantBasket />
         </div>
-
       </MuiThemeProvider>
     )
   }
