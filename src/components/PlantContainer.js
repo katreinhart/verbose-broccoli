@@ -11,20 +11,24 @@ class PlantContainer extends Component {
     return(
       <div>
         {
-          plantList.map((plant, id) => {
-            console.log("plant " + plant.name);
-            return(<Plant key={id} name={plant.name} description={plant.description}/>)
+          plantList.map((plant) => {
+            console.log("Plant " + plant.name + " has ID " + plant.id);
+            return(<Plant
+              key={plant.id}
+              name={plant.name}
+              plantID={plant.id}
+            />)
           })
         }
       </div>
     )
   }
 }
+//
+// function mapStateToProps(state) {
+//   return {
+//     state
+//   }
+// }
 
-function mapStateToProps(state) {
-  return {
-    state
-  }
-}
-
-export default connect(mapStateToProps)(PlantContainer)
+export default connect()(PlantContainer)

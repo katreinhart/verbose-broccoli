@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Paper from 'material-ui/Paper';
 
+import Plant from './Plant';
+
 const style = {
   minHeight: 100,
   width: 700,
@@ -16,8 +18,8 @@ class PlantBasket extends Component {
       <Paper style={style} zDepth={3}>
         <h3>Your Basket:</h3>
         {
-          this.props.plantBasket.map((plant, id) => {
-            return <Plant key={id} name={plant.name} />
+          this.props.plantBasket.map((plant) => {
+            return <Plant key={plant.id} name={plant.name} />
           })
         }
       </Paper>

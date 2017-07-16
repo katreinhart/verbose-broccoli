@@ -7,17 +7,12 @@ import { putPlantInBasket } from '../actions';
 import Button from './Button';
 
 class Plant extends Component {
-
-  addPlantToBasket() {
-    console.log("Add " + this.props.name + " to shopping basket");
-    putPlantInBasket(this.props.id);
-  }
   render() {
     return(
       <Card className="container">
         <CardTitle title={this.props.name} subtitle={this.props.description} />
         <RaisedButton
-          onClick={() => this.addPlantToBasket(this.props.id)}
+          onClick={() => this.props.putPlantInBasket(this.props.plantID)}
           label="Add to basket"
         />
       </Card>
@@ -27,7 +22,7 @@ class Plant extends Component {
 
 function mapStateToProps(state) {
   return {
-    plantBasket: state.plantBasket
+
   }
 }
 
