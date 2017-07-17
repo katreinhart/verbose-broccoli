@@ -12,12 +12,12 @@ class PlantContainer extends Component {
     return(
       <div>
         {
-          plantList.map((plant) => {
+          this.props.plants.map((plant) => {
             return(
             <Card key={plant.id} className="container">
               <CardTitle title={plant.name} subtitle={plant.description} />
               <RaisedButton
-                onClick={() => putPlantInBasket(plant.id)}
+                onClick={() => this.props.putPlantInBasket(plant.id)}
                 label="Add to basket"
               />
             </Card>
@@ -28,11 +28,11 @@ class PlantContainer extends Component {
     )
   }
 }
-//
-// function mapStateToProps(state) {
-//   return {
-//     state
-//   }
-// }
 
-export default connect(null, {putPlantInBasket})(PlantContainer)
+function mapStateToProps(state) {
+  return {
+    plants: state.plants
+  }
+}
+
+export default connect(mapStateToProps, {putPlantInBasket})(PlantContainer)

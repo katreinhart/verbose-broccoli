@@ -9,7 +9,7 @@ function plants(state = plants_json, action) {
       return plants;
     case REMOVE_PLANT_FROM_BASKET:
       plants = [...state, createPlant(action.id)];
-      return state;
+      return plants;
     default:
       return state;
   }

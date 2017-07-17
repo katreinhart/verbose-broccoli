@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Paper from 'material-ui/Paper';
+import { Card, CardTitle } from 'material-ui/Card';
+import RaisedButton from 'material-ui/RaisedButton';
 
 import { removePlantFromBasket } from '../actions';
 
@@ -15,21 +16,22 @@ const style = {
 class PlantBasket extends Component {
   render() {
     return(
-      <Paper style={style} zDepth={3}>
+      <div className="container">
         <h3>Your Basket:</h3>
         {
           this.props.plantBasket.map((plant) => {
             return (
-              <Card key={plant.id} className="container">
-                <CardTitle title={plant.name} subtitle={plant.description} />
+              <Card key={plant.id}>
+                <CardTitle title={plant.name} subtitle={plant.description}/>
                 <RaisedButton
-                  onClick={() => this.props.removePlantFromBasket(this.props.plantID)}
+                  onClick={() => this.props.removePlantFromBasket(plant.id)}
                   label="Remove from basket"
                 />
-              </Card>)
+              </Card>
+            )
           })
         }
-      </Paper>
+      </div>
     )
   }
 }
