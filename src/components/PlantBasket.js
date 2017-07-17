@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Paper from 'material-ui/Paper';
 
-import Plant from './Plant';
+import { removePlantFromBasket } from '../actions';
 
 const style = {
   minHeight: 100,
@@ -19,7 +19,14 @@ class PlantBasket extends Component {
         <h3>Your Basket:</h3>
         {
           this.props.plantBasket.map((plant) => {
-            return <Plant key={plant.id} name={plant.name} />
+            return (
+              <Card key={plant.id} className="container">
+                <CardTitle title={plant.name} subtitle={plant.description} />
+                <RaisedButton
+                  onClick={() => this.props.removePlantFromBasket(this.props.plantID)}
+                  label="Remove from basket"
+                />
+              </Card>)
           })
         }
       </Paper>
@@ -33,4 +40,4 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps, {})(PlantBasket)
+export default connect(mapStateToProps, {removePlantFromBasket})(PlantBasket)

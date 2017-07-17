@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Card, CardTitle } from 'material-ui/Card';
+import RaisedButton from 'material-ui/RaisedButton';
 
 import plantList from './data/plants.json';
-
-import Plant from './plant';
+import { putPlantInBasket } from '../actions';
 
 class PlantContainer extends Component {
 
@@ -12,12 +13,15 @@ class PlantContainer extends Component {
       <div>
         {
           plantList.map((plant) => {
-            console.log("Plant " + plant.name + " has ID " + plant.id);
-            return(<Plant
-              key={plant.id}
-              name={plant.name}
-              plantID={plant.id}
-            />)
+            return(
+            <Card key={plant.id} className="container">
+              <CardTitle title={plant.name} subtitle={plant.description} />
+              <RaisedButton
+                onClick={() => putPlantInBasket(plant.id)}
+                label="Add to basket"
+              />
+            </Card>
+          )
           })
         }
       </div>
@@ -31,4 +35,4 @@ class PlantContainer extends Component {
 //   }
 // }
 
-export default connect()(PlantContainer)
+export default connect(null, {putPlantInBasket})(PlantContainer)
